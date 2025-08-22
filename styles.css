@@ -226,39 +226,64 @@ body {
 iframe { width: 100%; height: 100%; border: none; }
 
 /* --- Carousel --- */
-/* --- Boutons du carrousel --- */
-button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.6);
-    border: none;
-    color: #fff;
-    font-size: 2rem; /* taille icône */
-    padding: 12px;   /* taille bouton */
+.carousel {
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    height: clamp(250px, 60vw, 500px);
+    overflow: hidden;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* --- Slides --- */
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* --- Points de navigation --- */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.6);
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.3s;
 }
 
-button.prev:hover, button.next:hover {
-    background-color: rgba(0,0,0,0.85);
-    transform: scale(1.1);
+.dot.active {
+    background: white;
 }
 
-button.prev { left: 20px; }
-button.next { right: 20px; }
-
-/* --- Ajustement sur petits écrans --- */
-@media (max-width: 600px) {
-  button.prev, button.next {
-    font-size: 1.2rem; /* icônes plus petites */
-    padding: 6px;      /* bouton plus compact */
-  }
-
-  button.prev { left: 10px; }
-  button.next { right: 10px; }
+/* --- Mobile Adjustments --- */
+@media screen and (max-width: 600px) {
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    .carousel {
+        height: 220px;
+    }
 }
+
 
 
 /* --- Code Container --- */
