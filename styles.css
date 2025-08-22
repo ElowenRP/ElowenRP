@@ -1,0 +1,470 @@
+/* --- Corps de page --- */
+body {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(-45deg, #ff0057, #ff9500, #00ffcc, #0055ff, #ff00ff);
+    background-size: 1000% 1000%; /* dégradé très fluide */
+    animation: gradientMove 20s ease infinite;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Animation de mouvement du dégradé */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Conteneur header avec effet Liquid Glass */
+.hautpage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo à gauche, bouton home à droite */
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1); /* fond semi-transparent clair */
+    backdrop-filter: blur(15px);          /* effet flou derrière */
+    -webkit-backdrop-filter: blur(15px);  /* compatibilité Safari */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* bordure subtile */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);     /* ombre douce */
+}
+
+/* Logo */
+.hautpage img:first-child {
+    height: 60px; /* ajuste selon ton design */
+    object-fit: contain;
+}
+
+/* Titre */
+.hautpage .titleheader {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    color: #fff;
+    font-family: 'Cherry Bomb One', cursive;
+}
+
+/* Bouton Home */
+.hautpage a img {
+    height: 50px; /* ajustable */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hautpage a img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- Titres généraux --- */
+.titleheader {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.titlebody {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0.5rem 0 2rem 0;
+}
+
+
+
+/* --- Encadré --- */
+.encadre {
+    background: #1e1e2f;
+    color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    max-width: 600px;
+    min-height: 120px;
+    margin: 20px auto;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.encadre:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    background: #2c3142;
+}
+
+/* --- Conteneur centré pour les boutons liens --- */
+.bouton-center {
+    display: flex;
+    justify-content: center;  /* centre horizontalement */
+    align-items: center;      /* centre verticalement dans son conteneur */
+    gap: 20px;                /* espace entre les boutons */
+    flex-wrap: wrap;           /* si écran petit, les boutons passent à la ligne */
+    padding: 2rem 0;           /* espace au-dessus et en dessous */
+    margin: 0 auto;            /* centre horizontalement */
+    z-index: 1;                /* reste au-dessus du fond mais sous les encadrés */
+}
+
+/* --- Boutons Liquid Glass --- */
+.bouton {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: float 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Flottement des boutons */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Animation liquid au survol */
+.bouton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.bouton:hover::before {
+    left: 100%;
+}
+
+/* Hover et active */
+.bouton:hover {
+    animation-play-state: paused;
+    transform: translateY(-12px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.bouton:active {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+/* --- Footer et liens --- */
+.baspage, .txtliens {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.liens, .liens2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.liens a img, .liens2 a img {
+    width: auto;
+    height: 55px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+
+.liens2 a img { height: 110px; }
+
+.liens a img:hover, .liens2 a img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+/* --- Widget Discord --- */
+.discord-widget-container {
+    width: 360px;
+    height: 520px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(114, 137, 218, 0.7), 0 0 40px rgba(114, 137, 218, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(44, 47, 51, 0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+}
+
+.discord-widget-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #7289da, 0 0 60px #7289da;
+}
+
+iframe { width: 100%; height: 100%; border: none; }
+
+/* --- Carousel --- */
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    overflow: hidden;
+    margin: 50px auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.6);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(0,0,0,0.85);
+    transform: scale(1.1);
+}
+
+button.prev { left: 20px; }
+button.next { right: 20px; }
+
+
+.code-container {
+    background: rgba(0,0,0,0.85);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,255,255,0.3), 0 0 60px rgba(255,0,255,0.2);
+    text-align: center;
+    width: 350px;
+    max-width: 90%;
+    animation: popIn 0.7s ease;
+}
+
+.code-container h2 {
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    color: #00fff7;
+    text-shadow: 0 0 10px #00fff7, 0 0 20px #ff00ff;
+    animation: glowText 1.5s infinite alternate;
+}
+
+#codeInput {
+    padding: 12px 15px;
+    font-size: 18px;
+    width: 80%;
+    border-radius: 10px;
+    border: 2px solid #00fff7;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s;
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+
+#codeInput:focus {
+    border-color: #ff00ff;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #00fff7, #ff00ff);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px #00fff7, 0 0 20px #ff00ff;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00fff7, 0 0 40px #ff00ff;
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 24px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+#message.success { color: #2ecc71; }
+#message.error { color: #e74c3c; }
+
+#secret {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px #00fff7, 0 0 40px #ff00ff;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.7s ease;
+    font-size: 16px;
+}
+
+#secret.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px #00fff7, 0 0 20px #ff00ff; }
+    to { text-shadow: 0 0 20px #ff00ff, 0 0 40px #00fff7; }
+}
+
+
+.contact-form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      width: 100%;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease;
+    }
+    .contact-form h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1em;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+      transition: 0.3s;
+    }
+    input:focus, textarea:focus {
+      box-shadow: 0 0 15px #00fff7;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    textarea {
+      resize: none;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #00fff7, #00d4ff, #00aaff);
+      color: #000;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 20px #00fff7;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00fff7;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <form class="contact-form" action="https://formsubmit.co/ton-email@mail.com" method="POST">
+    <h2>📩 Contactez-nous</h2>
+    
+    <!-- Anti-spam / Config -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://ton-site.com/merci.html">
+
+    <label for="name">Votre nom</label>
+    <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+
+    <label for="email">Votre email</label>
+    <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+
+    <label for="message">Votre message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Écrivez ici..." required></textarea>
+
+    <button type="submit">Envoyer ✨</button>
+  </form>
