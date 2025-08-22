@@ -94,53 +94,60 @@ startAutoplay();
 // ==========================
 function initSecretCode() {
   const VALID_CODE = "Creator";
+
   const input = document.getElementById("codeInput");
   const message = document.getElementById("message");
   const secret = document.getElementById("secret");
-  const button = document.getElementById("codeButton");
 
-  if (secret && localStorage.getItem("secretUnlocked") === "1") {
-    secret.classList.add("show");
-    if (message) {
-      message.textContent = "Code déjà validé ✅";
-      message.classList.remove("error");
-      message.classList.add("success");
-    }
+  if (!input || !message || !secret) {
+    console.warn("Éléments requis pour le code secret manquants !");
+    return;
   }
 
-  function setFeedback(ok) {
-    if (!message || !secret) return;
-    if (ok) {
-      message.textContent = "Code correct ! 🎉";
-      message.classList.remove("error");
-      message.classList.add("success");
-      secret.classList.add("show");
+  // Vérifier si le secret est déjà débloqué
+  if (localStorage.getItem("secretUnlocked") === "1") {
+    showSecret("Code déjà validé ✅");
+  }
+
+  // Afficher le secret et message de succès
+  function showSecret(msg) {
+    secret.classList.add("show");
+    message.textContent = msg;
+    message.classList.remove("error");
+    message.classList.add("success");
+  }
+
+  // Masquer le secret et afficher message d'erreur
+  function hideSecret(msg) {
+    secret.classList.remove("show");
+    message.textContent = msg;
+    message.classList.remove("success");
+    message.classList.add("error");
+  }
+
+  // Fonction de vérification du code
+  function verifierCode() {
+    const codeEntre = input.value.trim();
+    if (codeEntre.toLowerCase() === VALID_CODE.toLowerCase()) {
+      showSecret("Code correct ! 🎉");
       localStorage.setItem("secretUnlocked", "1");
     } else {
-      message.textContent = "Code incorrect, réessayez.";
-      message.classList.remove("success");
-      message.classList.add("error");
-      secret.classList.remove("show");
+      hideSecret("Code incorrect, réessayez.");
       localStorage.removeItem("secretUnlocked");
     }
   }
 
-  function verifierCode() {
-    if (!input) return;
-    const codeEntre = input.value.trim();
-    const ok = codeEntre.toLowerCase() === VALID_CODE.toLowerCase();
-    setFeedback(ok);
-  }
-
+  // Rendre la fonction accessible globalement pour l'attribut onclick
   window.verifierCode = verifierCode;
 
-  if (button) button.addEventListener("click", verifierCode);
-  if (input) {
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        verifierCode();
-      }
-    });
-  }
+  // Vérifier le code avec la touche Enter
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      verifierCode();
+    }
+  });
 }
+
+// Initialiser après le chargement du DOM
+document.addEventListener("DOMContentLoaded", initSecretCode);
