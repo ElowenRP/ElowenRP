@@ -486,3 +486,57 @@ button:hover {
         padding: 15px;
     }
 }
+
+/* --- Vitrine qui contient les passes --- */
+.gamepassvitrine {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- Chaque encadré de pass --- */
+.encadrepass {
+  background: #1c1c1c;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* --- Image du pass --- */
+.encadrepass img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* --- Titre du pass --- */
+.encadrepass h3 {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #ffd700;
+}
+
+/* --- Description du pass --- */
+.encadrepass p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* --- Bouton d’achat --- */
+.btn-buy {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #00a2ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-buy:hover {
+  background: #0080cc;
+}
