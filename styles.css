@@ -540,3 +540,24 @@ button:hover {
 .btn-buy:hover {
   background: #0080cc;
 }
+
+.merci {
+        font-family: 'Poppins', sans-serif;
+        font-size: 60px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #11ff00;
+        margin: 20px 0;
+    }
+
+    .infomerci {
+        font-family: 'Roboto', sans-serif;
+        font-size: 30px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #00ffae;
+    }
